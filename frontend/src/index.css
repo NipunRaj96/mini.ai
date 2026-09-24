@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import './styles/tokens.css';
+
+/* Map the design tokens onto Tailwind v4 theme so components can use
+   bg-primary, text-on-surface, border-rail-border, etc. instead of raw hex. */
+@theme {
+  --color-rail: var(--color-rail-base);
+  --color-rail-elevated: var(--color-surface-hover);
+  --color-rail-border: var(--color-line);
+  --color-rail-hover: var(--color-surface-hover);
+
+  --color-canvas: var(--color-canvas-base);
+  --color-surface: var(--color-surface-card);
+  --color-surface-border: var(--color-line);
+  --color-input: var(--color-input-bg);
+
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-on-primary: var(--color-on-primary);
+
+  --color-accent: var(--color-accent);
+  --color-focus-ring: var(--color-focus-ring);
+
+  --color-on-surface: var(--color-text-high);
+  --color-on-surface-mid: var(--color-text-mid);
+  --color-on-surface-low: var(--color-text-low);
+
+  --color-error: var(--color-error-on);
+  --color-error-container: var(--color-error-container);
+
+  --radius-sm: var(--radius-sm);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-canvas-base);
+  color: var(--color-text-high);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep a visible, on-brand keyboard focus ring everywhere instead of
+   removing outlines — accessibility bar from the design spec. Outline is
+   suppressed only for mouse/touch focus (:focus) and restored for keyboard
+   navigation (:focus-visible), the standard accessible pattern. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Composer's own dock already shows a focused-border state (see Composer.tsx),
+   so the global keyboard-focus ring is redundant here and reads as a stray
+   rectangle around the textarea -- opt this one field out. */
+.composer-textarea:focus-visible {
+  outline: none;
+}
+
+/* Native checkboxes default to browser blue, which isn't in this monochrome
+   palette -- tint them with the same neutral used for the focus ring. */
+input[type='checkbox'] {
+  accent-color: var(--color-focus-ring);
+}
+
+* {
+  box-sizing: border-box;
+}

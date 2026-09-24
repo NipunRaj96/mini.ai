@@ -1,0 +1,76 @@
+/**
+ * mini.ai design tokens — finalized black/dark-grey system (superseded the
+ * earlier Espresso Artisan amber/cocoa draft). Values are exact hex from the
+ * real Stitch-exported HTML/CSS for the finalized screens — do not invent
+ * colors. Dark-mode ONLY — no light theme, no toggle, by explicit product
+ * decision. Monochrome neutral palette; emerald green is the ONLY accent,
+ * reserved for connected/active/live status indicators (dots, badges) —
+ * never for buttons, focus rings, or hover states.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Sidebar / structural rail */
+  --color-rail-base: #121316;
+
+  /* Main workspace canvas */
+  --color-canvas-base: #0e0f12;
+
+  /* Elevated surfaces */
+  --color-surface-card: #16171b;
+  --color-surface-subtle: #18191d;
+  --color-surface-hover: #1e2025;
+  --color-input-bg: #151619;
+
+  /* Borders/dividers — one consistent line color throughout */
+  --color-line: #202227;
+
+  /* Text */
+  --color-text-high: #e5e7eb;
+  --color-text-mid: #7a7e87;
+  --color-text-low: #717580;
+
+  /* Primary action button — light/white pill on dark, not a color */
+  --color-primary: #f5f5f5;
+  --color-primary-hover: #ffffff;
+  --color-on-primary: #171717;
+
+  /* Accent — emerald, status/live indicators only */
+  --color-accent: #34d399;
+
+  /* Keyboard focus ring — neutral, not accent (real design reserves green
+     for status only; this project's own accessibility bar still requires a
+     visible focus-visible outline everywhere). */
+  --color-focus-ring: #a1a5af;
+
+  /* Error (M3 export pairing — only error uses this) */
+  --color-error-on: #ffb4ab;
+  --color-error-container: #93000a;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --gutter: 1.5rem;
+
+  /* Elevation shadows — plain, no colored glow */
+  --shadow-level3: 0 16px 36px -8px rgba(0, 0, 0, 0.6);
+  --shadow-level4: 0 24px 48px -12px rgba(0, 0, 0, 0.8);
+
+  /* Fonts — Inter only, no Geist */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 1rem;
+  }
+}
